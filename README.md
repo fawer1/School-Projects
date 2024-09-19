@@ -1,2 +1,2 @@
 # School-Projects
-School Projects from year 1 to year 4
+This repository includes projects and assignments done by me during my education years in Fontys UAS Eindhoven (ICT & Media Design). 
