@@ -1,10 +1,9 @@
-import { MouseEvent } from "react";
+import { useState } from "react";
 
 function ListGroup() {
   const items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
-
-  //Event Handler
-  const handleClick = (event: MouseEvent) => console.log(event); //type annotation
+  // Hook - when this funtion is called it rerenders the component to show the change.
+  const [selectedIndex, setSelectedIndex] = useState(-1); // -1 means no item is selected
 
   return (
     <>
@@ -12,8 +11,18 @@ function ListGroup() {
       {/*If the condition is true, return the paragraph.*/}
       {items.length === 0 && <p>No items found.</p>}
       <ul className="list-group">
-        {items.map((item) => (
-          <li className="list-group-item" key={item} onClick={handleClick}>
+        {items.map((item, index) => (
+          <li
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            key={item}
+            onClick={() => {
+              setSelectedIndex(index);
+            }}
+          >
             {item}
           </li> //key is a unique identifier required by React - it gives errors in the browser if we don't include it
         ))}
