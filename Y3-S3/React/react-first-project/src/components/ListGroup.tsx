@@ -1,5 +1,10 @@
+import { MouseEvent } from "react";
+
 function ListGroup() {
   const items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
+
+  //Event Handler
+  const handleClick = (event: MouseEvent) => console.log(event); //type annotation
 
   return (
     <>
@@ -8,11 +13,7 @@ function ListGroup() {
       {items.length === 0 && <p>No items found.</p>}
       <ul className="list-group">
         {items.map((item) => (
-          <li
-            className="list-group-item"
-            key={item}
-            onClick={(e) => console.log(e)}
-          >
+          <li className="list-group-item" key={item} onClick={handleClick}>
             {item}
           </li> //key is a unique identifier required by React - it gives errors in the browser if we don't include it
         ))}
