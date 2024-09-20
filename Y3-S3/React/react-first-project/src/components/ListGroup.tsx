@@ -13,7 +13,11 @@ function ListGroup() {
       {items.length === 0 && <p>No items found.</p>}
       <ul className="list-group">
         {items.map((item) => (
-          <li className="list-group-item" key={item} onClick={handleClick}>
+          <li
+            className="list-group-item"
+            key={item}
+            onClick={(e) => console.log(e)}
+          >
             {item}
           </li> //key is a unique identifier required by React - it gives errors in the browser if we don't include it
         ))}
