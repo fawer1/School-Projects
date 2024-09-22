@@ -4,9 +4,10 @@ import { useState } from "react";
 interface Props {
   items: string[]; //array of strings
   heading: string; //string
+  onSelectItem: (item: string) => void;
 }
 
-function ListGroup({ items, heading }: Props) {
+function ListGroup({ items, heading, onSelectItem }: Props) {
   // Hook - when this funtion is called it rerenders the component to show the change.
   const [selectedIndex, setSelectedIndex] = useState(-1); // -1 means no item is selected
 
@@ -26,6 +27,7 @@ function ListGroup({ items, heading }: Props) {
             key={item} //key is a unique identifier required by React - it gives errors in the browser if we don't include it
             onClick={() => {
               setSelectedIndex(index);
+              onSelectItem(item);
             }}
           >
             {item}
