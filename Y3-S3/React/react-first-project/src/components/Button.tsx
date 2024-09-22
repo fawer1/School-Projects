@@ -1,6 +1,6 @@
 interface Props {
   children: string;
-  color?: string; //? means optional
+  color?: "primary" | "secondary" | "success" | "danger"; //? means optional
   onClick: () => void;
 }
 const Button = ({ children, onClick, color = "primary" }: Props) => {
